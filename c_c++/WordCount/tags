@@ -1,0 +1,34 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CC	makefile	/^CC = g++$/;"	m
+CFLAGS	makefile	/^CFLAGS  = -g -Wall -o$/;"	m
+CPPEXT	makefile	/^CPPEXT = .cpp$/;"	m
+Data	wordCountApp.h	/^struct Data {$/;"	s
+HEXT	makefile	/^HEXT = .h$/;"	m
+SERVERAPP	makefile	/^SERVERAPP = serverApp$/;"	m
+WCAPP	makefile	/^WCAPP = wordCountApp$/;"	m
+displayWordStats	wordCountApp.h	/^    void displayWordStats()$/;"	f	class:wordCountApp
+filePtr	wordCountApp.h	/^    FILE *filePtr;          \/\/pointer to file for processing$/;"	m	class:wordCountApp
+getNumOfLines	wordCountApp.cpp	/^int getNumOfLines(FILE *f)$/;"	f
+lineArr	wordCountApp.h	/^    int *lineArr;           \/\/array holding count of word at each line. (array index = line)$/;"	m	class:wordCountApp
+lineArray	wordCountApp.h	/^    int lineArray[32];$/;"	m	struct:Data
+main	serverApp.cpp	/^int main() {$/;"	f
+main	wordCountApp.cpp	/^int main(int argc, char *argv[])$/;"	f
+nLines	wordCountApp.h	/^    int nLines;         $/;"	m	struct:Data
+numOfLines	wordCountApp.h	/^    int numOfLines;         \/\/total number of lines in file;$/;"	m	class:wordCountApp
+sendStatsToServer	wordCountApp.h	/^    int sendStatsToServer() {$/;"	f	class:wordCountApp
+setTotalCountAndLineArray	wordCountApp.h	/^    void setTotalCountAndLineArray(int count, int *array) {$/;"	f	class:wordCountApp
+setWordStats	wordCountApp.h	/^    void setWordStats()$/;"	f	class:wordCountApp
+totalCount	wordCountApp.h	/^    int totalCount;     $/;"	m	struct:Data
+totalWordCount	wordCountApp.h	/^    int totalWordCount;     \/\/total word count$/;"	m	class:wordCountApp
+word	wordCountApp.h	/^    char word[32];       $/;"	m	struct:Data
+wordCountApp	wordCountApp.h	/^    wordCountApp ()$/;"	f	class:wordCountApp
+wordCountApp	wordCountApp.h	/^    wordCountApp(int nLines, FILE *fPtr, char *word)$/;"	f	class:wordCountApp
+wordCountApp	wordCountApp.h	/^class wordCountApp$/;"	c
+wordThread	wordCountApp.cpp	/^void* wordThread(void *ptr) {$/;"	f
+wordToFind	wordCountApp.h	/^    char *wordToFind;       \/\/word to find$/;"	m	class:wordCountApp
+~wordCountApp	wordCountApp.h	/^    ~wordCountApp(){$/;"	f	class:wordCountApp
