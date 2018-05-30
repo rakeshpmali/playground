@@ -4,5 +4,9 @@
 
 void main()
 {
-    printf("\n This is a Test \n");
+    int i = 5;
+    int j = i++;
+    int k = i++ + ++i;
+    printf("%d %d %d", i, j, k);
+    //printf("\n This is a Test \n");
 }
