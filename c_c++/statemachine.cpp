@@ -1,9 +1,10 @@
-include <iostream>
+#include <iostream>
 using namespace std;
 class Machine
 {
     class State *current;
-    public:
+
+  public:
     Machine();
     void setCurrent(State *s)
     {
@@ -11,20 +12,19 @@ class Machine
     }
     void on();
     void off();
-    void (*fptr[])();
 };
 
 class State
 {
-    public:
-        virtual void on(Machine *m)
-        {
-            cout << "   already ON\n";
-        }
-        virtual void off(Machine *m)
-        {
-            cout << "   already OFF\n";
-        }
+  public:
+    virtual void on(Machine *m)
+    {
+        cout << "   already ON\n";
+    }
+    virtual void off(Machine *m)
+    {
+        cout << "   already OFF\n";
+    }
 };
 
 void Machine::on()
@@ -37,37 +37,37 @@ void Machine::off()
     current->off(this);
 }
 
-class ON: public State
+class ON : public State
 {
-    public:
-        ON()
-        {
-            cout << "   ON-ctor ";
-        };
-        ~ON()
-        {
-            cout << "   dtor-ON\n";
-        };
-        void off(Machine *m);
+  public:
+    ON()
+    {
+        cout << "   ON-ctor ";
+    };
+    ~ON()
+    {
+        cout << "   dtor-ON\n";
+    };
+    void off(Machine *m);
 };
 
-class OFF: public State
+class OFF : public State
 {
-    public:
-        OFF()
-        {
-            cout << "   OFF-ctor ";
-        };
-        ~OFF()
-        {
-            cout << "   dtor-OFF\n";
-        };
-        void on(Machine *m)
-        {
-            cout << "   going from OFF to ON";
-            m->setCurrent(new ON());
-            delete this;
-        }
+  public:
+    OFF()
+    {
+        cout << "   OFF-ctor ";
+    };
+    ~OFF()
+    {
+        cout << "   dtor-OFF\n";
+    };
+    void on(Machine *m)
+    {
+        cout << "   going from OFF to ON";
+        m->setCurrent(new ON());
+        delete this;
+    }
 };
 
 void ON::off(Machine *m)
@@ -85,13 +85,16 @@ Machine::Machine()
 
 int main()
 {
+    void (Machine::*ptrs[])() = 
+    {
+        Machine::off, Machine::on
+    };
     Machine fsm;
-
     int num;
     while (1)
     {
         cout << "Enter 0/1: ";
         cin >> num;
-        (fsm.*fptr[num])();
+        (fsm.*ptrs[num])();
     }
 }
